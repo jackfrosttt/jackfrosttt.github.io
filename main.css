@@ -12,10 +12,13 @@ color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
     background-size: auto;
     margin: auto;
-    
+        
 }
 
-body {background-color: grey}
+body {background-color: grey;
+font-family: 'Helvetica', 'Arial', sans-serif;
+
+}
 
 footer {
     position: relative;
@@ -27,5 +30,7 @@ footer {
     background-size: auto;
         
 }
-
+a{
+color:blue
+}
 </style>
