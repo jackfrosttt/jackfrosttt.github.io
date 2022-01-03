@@ -6,15 +6,7 @@ h1 {
   margin-left: 20px;
 }
 
-footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: grey;
-  color: black;
-  text-align: center;
-}
+
 
     headerr 
     {
@@ -27,20 +19,32 @@ footer {
     text-align: left; 
     }
 
-    <body style="background-color:powderblue;">
 
 .body {background-color: grey;}
 
 
 .mainbodyofpage {background-color: grey;
-color: white;
+color: black;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    background-size: auto;
     
 }
+
 .mainheader {background-color: grey;
 color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    background-size: cover;
 }
 
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkgrey;
+  color: black;
+  text-align: center;
+    background-size: auto;
+}
 
 </style>
