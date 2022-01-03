@@ -1,50 +1,31 @@
 <style>
 
-
-h1 {
-  color: navy;
-  margin-left: 20px;
-}
-
-
-
-    headerr 
-    {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100;
-    background-color: grey;
-    color: black;
-    text-align: left; 
-    }
-
-
-.body {background-color: grey;}
-
-
-.mainbodyofpage {background-color: grey;
-color: black;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    background-size: auto;
-    
-}
-
 .mainheader {background-color: grey;
 color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
     background-size: cover;
+    margin: auto;
 }
 
-footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: darkgrey;
-  color: black;
-  text-align: center;
+.mainbodyofpage {background-color: grey;
+color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
     background-size: auto;
+    margin: auto;
+    
+}
+
+body {background-color: grey}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width 100%;
+    color: black;
+    text-align: center;
+    background-size: auto;
+        
 }
 
 </style>
