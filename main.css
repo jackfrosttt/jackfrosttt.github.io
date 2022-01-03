@@ -29,11 +29,18 @@ footer {
 
     <body style="background-color:powderblue;">
 
-body {background-color: green;}
-h1   {color: white;}
+.body {background-color: grey;}
 
-.mainbodyofpage {background-color: white}
-.mainheader {background-color: white}
+
+.mainbodyofpage {background-color: grey;
+color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    
+}
+.mainheader {background-color: grey;
+color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
 
 
 </style>
