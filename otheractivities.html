@@ -65,11 +65,22 @@
     
 <div class="footer">    
 <footer>
-    <h4>
-    <p>You can contact me here at:</p>
-    <p><a href="https://github.com/jackfrosttt/Portfolio-for-CS-Work">Github</a></p>
-    <p><a href="https://www.linkedin.com/">LinkedIn.com</a></p>
-    <p><a href="mailto:00328514@student.necc.edu">My Email</a></p>
+    
+    <h4><p>You can contact me here at:</p>
+    <p>
+    <a href="https://github.com/jackfrosttt/Portfolio-for-CS-Work">Github</a>
+    <a href="https://www.linkedin.com/">LinkedIn.com</a>
+    <a href="mailto:00328514@student.necc.edu">My Email</a>
+    </p>
+    
+    <p>Website last updated <span id="demo"></span>.</p>
+        
+        <script>
+            document.getElementById("demo").innerHTML = document.lastModified;
+        </script>
+    
+    </h4>
+    
 </footer>
 </div>
     
