@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack - Infrastructure & Cloud Engineer</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --accent: #3b82f6;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --success: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: var(--background);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        /* Projects Section */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            margin-bottom: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--background);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .email-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Certifications */
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-badge::before {
+            content: "✓";
+            color: var(--success);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Jack</h1>
+            <h2>Infrastructure & Cloud Engineer</h2>
+            <p>Building scalable infrastructure solutions with expertise in AWS, networking, and systems administration</p>
+            <div class="cert-badges">
+                <span class="cert-badge">CompTIA Security+</span>
+                <span class="cert-badge">CompTIA Network+</span>
+                <span class="cert-badge">CompTIA A+</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Advanced Home Infrastructure Lab</h3>
+                    <p>Enterprise-grade home network infrastructure with multi-floor connectivity</p>
+                    <ul>
+                        <li>Mixed 1G/2.5G MoCA adapter network deployment</li>
+                        <li>Full basement-to-top floor coverage</li>
+                        <li>UniFi network infrastructure integration</li>
+                        <li>Pi-hole DNS server implementation</li>
+                        <li>Comprehensive backup solution</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">UniFi</span>
+                        <span class="tech-tag">MoCA</span>
+                        <span class="tech-tag">Networking</span>
+                        <span class="tech-tag">Pi-hole</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Solar-Powered IoT Platform</h3>
+                    <p>Autonomous solar-powered computing platform with remote management</p>
+                    <ul>
+                        <li>100W Solar panel installation</li>
+                        <li>12V 70Ah deep cycle marine battery</li>
+                        <li>Raspberry Pi 4B integration</li>
+                        <li>Charge controller implementation</li>
+                        <li>Power management system</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Solar</span>
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>AWS Cloud Operations</h3>
+                    <p>Hands-on experience with AWS infrastructure management and deployment</p>
+                    <ul>
+                        <li>RDS database management</li>
+                        <li>EC2 instance deployment</li>
+                        <li>Fleet Manager operations</li>
+                        <li>Infrastructure upgrades</li>
+                        <li>Backup and recovery procedures</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">RDS</span>
+                        <span class="tech-tag">EC2</span>
+                        <span class="tech-tag">Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>AWS Services</li>
+                        <li>UniFi Networking</li>
+                        <li>Linux Systems</li>
+                        <li>Windows Server</li>
+                        <li>VMware vSphere</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Networking</h3>
+                    <ul class="skill-list">
+                        <li>MoCA Network Design</li>
+                        <li>VPN Configuration</li>
+                        <li>Network Security</li>
+                        <li>DNS Management</li>
+                        <li>IoT Integration</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Automation</h3>
+                    <ul class="skill-list">
+                        <li>Python Scripting</li>
+                        <li>Backup Automation</li>
+                        <li>Power Management</li>
+                        <li>System Monitoring</li>
+                        <li>Infrastructure as Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Connect</h2>
+            <div class="social-links">
+                <a href="https://github.com/jackfrosttt" target="_blank" class="social-link">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/jackberberian" target="_blank" class="social-link">
+                    LinkedIn
+                </a>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:various-58.trig@icloud.com" class="email-button">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
