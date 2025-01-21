@@ -175,6 +175,30 @@
             padding-bottom: 0.5rem;
         }
 
+        /* Certifications */
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-badge::before {
+            content: "✓";
+            color: var(--success);
+        }
+
         .skill-list {
             list-style: none;
         }
@@ -203,10 +227,6 @@
         .contact-container {
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .contact-info {
-            margin-bottom: 3rem;
         }
 
         .social-links {
@@ -250,30 +270,6 @@
             transform: translateY(-2px);
         }
 
-        /* Certifications */
-        .cert-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .cert-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cert-badge::before {
-            content: "✓";
-            color: var(--success);
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -303,7 +299,7 @@
         <div class="container">
             <h1>Jack</h1>
             <h2>Infrastructure & Cloud Engineer</h2>
-            <p>Building scalable infrastructure solutions with expertise in AWS, networking, and systems administration</p>
+            <p>Building scalable infrastructure solutions with expertise in networking, systems administration, and cloud operations</p>
             <div class="cert-badges">
                 <span class="cert-badge">CompTIA Security+</span>
                 <span class="cert-badge">CompTIA Network+</span>
@@ -317,20 +313,36 @@
             <h2 class="section-title">Technical Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>Advanced Home Infrastructure Lab</h3>
-                    <p>Enterprise-grade home network infrastructure with multi-floor connectivity</p>
+                    <h3>Enterprise Backup Infrastructure</h3>
+                    <p>Managed critical backup infrastructure for high-priority client environments</p>
                     <ul>
-                        <li>Mixed 1G/2.5G MoCA adapter network deployment</li>
-                        <li>Full basement-to-top floor coverage</li>
-                        <li>UniFi network infrastructure integration</li>
-                        <li>Pi-hole DNS server implementation</li>
-                        <li>Comprehensive backup solution</li>
+                        <li>Upgraded Veeam agents on production servers</li>
+                        <li>Implemented UAT testing procedures</li>
+                        <li>Resolved critical backup system issues</li>
+                        <li>Maintained high-priority client systems</li>
                     </ul>
                     <div class="tech-tags">
-                        <span class="tech-tag">UniFi</span>
+                        <span class="tech-tag">Veeam</span>
+                        <span class="tech-tag">Enterprise</span>
+                        <span class="tech-tag">Backup</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Home Infrastructure</h3>
+                    <p>Comprehensive home network with multi-floor coverage and smart home integration</p>
+                    <ul>
+                        <li>Mixed 1G/2.5G MoCA adapter deployment</li>
+                        <li>Built-in WiFi on every floor</li>
+                        <li>Pi-hole DNS & DHCP server</li>
+                        <li>Backblaze backup solution</li>
+                        <li>HomeKit smart home integration</li>
+                    </ul>
+                    <div class="tech-tags">
                         <span class="tech-tag">MoCA</span>
                         <span class="tech-tag">Networking</span>
                         <span class="tech-tag">Pi-hole</span>
+                        <span class="tech-tag">HomeKit</span>
                     </div>
                 </div>
 
@@ -338,35 +350,31 @@
                     <h3>Solar-Powered IoT Platform</h3>
                     <p>Autonomous solar-powered computing platform with remote management</p>
                     <ul>
-                        <li>100W Solar panel installation</li>
+                        <li>100W Solar panel setup</li>
                         <li>12V 70Ah deep cycle marine battery</li>
                         <li>Raspberry Pi 4B integration</li>
-                        <li>Charge controller implementation</li>
-                        <li>Power management system</li>
+                        <li>Remote management capability</li>
                     </ul>
                     <div class="tech-tags">
                         <span class="tech-tag">Solar</span>
                         <span class="tech-tag">Raspberry Pi</span>
                         <span class="tech-tag">IoT</span>
-                        <span class="tech-tag">Python</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>AWS Cloud Operations</h3>
-                    <p>Hands-on experience with AWS infrastructure management and deployment</p>
+                    <h3>AWS Infrastructure Management</h3>
+                    <p>Cloud infrastructure maintenance and operations</p>
                     <ul>
-                        <li>RDS database management</li>
-                        <li>EC2 instance deployment</li>
-                        <li>Fleet Manager operations</li>
-                        <li>Infrastructure upgrades</li>
-                        <li>Backup and recovery procedures</li>
+                        <li>Griffin deployment management</li>
+                        <li>IP allowlist configurations</li>
+                        <li>Database backup and restores</li>
+                        <li>EC2 disk space upgrades</li>
                     </ul>
                     <div class="tech-tags">
                         <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">RDS</span>
                         <span class="tech-tag">EC2</span>
-                        <span class="tech-tag">Cloud</span>
+                        <span class="tech-tag">RDS</span>
                     </div>
                 </div>
             </div>
@@ -381,10 +389,10 @@
                     <h3>Infrastructure</h3>
                     <ul class="skill-list">
                         <li>AWS Services</li>
-                        <li>UniFi Networking</li>
+                        <li>Veeam Backup & Recovery</li>
                         <li>Linux Systems</li>
                         <li>Windows Server</li>
-                        <li>VMware vSphere</li>
+                        <li>Backblaze</li>
                     </ul>
                 </div>
 
@@ -392,21 +400,19 @@
                     <h3>Networking</h3>
                     <ul class="skill-list">
                         <li>MoCA Network Design</li>
-                        <li>VPN Configuration</li>
+                        <li>Pi-hole DNS & DHCP</li>
                         <li>Network Security</li>
-                        <li>DNS Management</li>
-                        <li>IoT Integration</li>
+                        <li>Multi-Floor WiFi</li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Automation</h3>
+                    <h3>Additional Skills</h3>
                     <ul class="skill-list">
-                        <li>Python Scripting</li>
-                        <li>Backup Automation</li>
-                        <li>Power Management</li>
-                        <li>System Monitoring</li>
-                        <li>Infrastructure as Code</li>
+                        <li>3D Modeling (Blender)</li>
+                        <li>3D Printing (Prusa Mini)</li>
+                        <li>Smart Home Integration</li>
+                        <li>Energy Monitoring</li>
                     </ul>
                 </div>
             </div>
