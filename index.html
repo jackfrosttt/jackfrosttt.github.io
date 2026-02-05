@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Berberian - IT Infrastructure & Cloud Engineer</title>
-    <meta name="description" content="IT Infrastructure & Cloud Engineer specializing in managed services, cloud operations, and enterprise support. Based in Andover, MA.">
+    <title>Jack - IT Infrastructure Engineer</title>
+    <meta name="description" content="IT Infrastructure Engineer specializing in cloud operations, managed services, and enterprise support. Available for full-time roles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --accent: #8b5cf6;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb;
-            --bg-tertiary: #f3f4f6;
-            --text-primary: #111827;
-            --text-secondary: #6b7280;
-            --text-tertiary: #9ca3af;
-            --border: #e5e7eb;
-            --success: #10b981;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text: #1a1a1a;
+            --text-secondary: #6b7280;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1419;
+            --bg-secondary: #1a1f2e;
+            --text: #e4e6eb;
+            --text-secondary: #9ca3af;
+            --accent: #60a5fa;
+            --accent-hover: #3b82f6;
+            --border: #2d3748;
+            --card-bg: #1a1f2e;
+            --shadow: rgba(0, 0, 0, 0.3);
         }
 
         html {
@@ -38,302 +45,297 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.7;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
+        /* Header */
+        header {
+            position: sticky;
             top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
+            background: var(--bg);
             border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
-        nav.scrolled {
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-content {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
-            max-width: 1100px;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .nav-logo {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-primary);
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text);
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
-            list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
-        /* Hero Section */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 1.25rem;
+            transition: all 0.2s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        /* Hero */
         .hero {
-            padding: 8rem 0 6rem;
-            margin-top: 4rem;
-            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            border-radius: 100px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
+            margin-bottom: 1rem;
             line-height: 1.1;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .hero h2 {
+        .hero .subtitle {
             font-size: 1.5rem;
             color: var(--text-secondary);
-            font-weight: 400;
             margin-bottom: 1.5rem;
-            line-height: 1.6;
         }
 
         .hero p {
             font-size: 1.125rem;
-            color: var(--text-tertiary);
-            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
             line-height: 1.7;
         }
 
-        .hero-buttons {
+        .cta-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn-primary {
+        .btn {
             padding: 0.875rem 1.75rem;
-            background: var(--primary);
-            color: white;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 10px;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         .btn-secondary {
-            padding: 0.875rem 1.75rem;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 500;
-            font-size: 0.95rem;
+            background: var(--bg-secondary);
+            color: var(--text);
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
+            border-color: var(--accent);
         }
 
         /* Section */
-        .section {
-            padding: 5rem 0;
+        section {
+            padding: 5rem 2rem;
         }
 
         .section-header {
-            max-width: 700px;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-label {
-            font-size: 0.875rem;
+            color: var(--accent);
             font-weight: 600;
-            color: var(--primary);
+            font-size: 0.875rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            letter-spacing: -0.02em;
         }
 
         .section-description {
             font-size: 1.125rem;
             color: var(--text-secondary);
-            line-height: 1.7;
+            max-width: 700px;
         }
 
-        /* Experience Cards */
-        .experience-item {
-            background: var(--bg-primary);
+        /* Experience */
+        .experience-card {
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 2.5rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
         }
 
-        .experience-item:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+        .experience-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 16px var(--shadow);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: flex-start;
             margin-bottom: 1.5rem;
-            flex-wrap: wrap;
             gap: 1rem;
         }
 
-        .experience-title h3 {
+        .company-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .company-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .experience-header h3 {
             font-size: 1.5rem;
-            font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .experience-company {
-            font-size: 1.125rem;
-            color: var(--primary);
-            font-weight: 500;
+        .company-name {
+            color: var(--accent);
+            font-weight: 600;
         }
 
-        .experience-date {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
+        .date {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
             white-space: nowrap;
         }
 
-        .experience-description {
+        .experience-card p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
 
-        .experience-list {
+        .experience-card ul {
             list-style: none;
             margin-bottom: 1.5rem;
         }
 
-        .experience-list li {
-            padding-left: 1.75rem;
+        .experience-card li {
+            padding-left: 1.5rem;
             margin-bottom: 0.75rem;
             position: relative;
             color: var(--text-secondary);
         }
 
-        .experience-list li::before {
+        .experience-card li::before {
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--accent);
             font-weight: 600;
         }
 
-        /* Projects Grid */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 2rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: all 0.3s;
         }
 
         .project-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+            box-shadow: 0 8px 16px var(--shadow);
             transform: translateY(-4px);
-        }
-
-        .project-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
         }
 
         .project-card h3 {
             font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .project-card p {
@@ -342,44 +344,24 @@
             line-height: 1.7;
         }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            padding: 0.375rem 0.875rem;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            border-radius: 6px;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        /* Skills Section */
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .skill-card {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 2rem;
         }
 
         .skill-card h3 {
             font-size: 1.125rem;
-            font-weight: 600;
             margin-bottom: 1.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--accent);
         }
 
         .skill-list {
@@ -389,7 +371,7 @@
         .skill-list li {
             padding: 0.75rem 0;
             color: var(--text-secondary);
-            border-bottom: 1px solid var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
         }
 
         .skill-list li:last-child {
@@ -400,319 +382,259 @@
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
         .cert-badge {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--success);
-            box-shadow: var(--shadow-sm);
         }
 
         .cert-icon {
             width: 40px;
             height: 40px;
-            background: rgba(16, 185, 129, 0.1);
+            background: var(--bg-secondary);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
             flex-shrink: 0;
+            font-weight: 700;
+            color: var(--accent);
         }
 
-        .cert-info h4 {
+        .cert-badge h4 {
             font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: 0.125rem;
+            margin-bottom: 0.25rem;
         }
 
-        .cert-info p {
+        .cert-badge p {
             font-size: 0.8125rem;
-            color: var(--text-tertiary);
+            color: var(--text-secondary);
         }
 
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-            padding: 6rem 0;
+        /* Contact */
+        .contact {
+            background: var(--bg-secondary);
+            text-align: center;
         }
 
         .contact-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 4rem 3rem;
-            text-align: center;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: var(--shadow-lg);
         }
 
-        .contact-card h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-        }
-
-        .contact-links {
+        .social-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .social-link {
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 500;
-            font-size: 0.9375rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
         }
 
         /* Footer */
         footer {
-            padding: 3rem 0;
+            padding: 2rem;
             text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.9375rem;
+            color: var(--text-secondary);
             border-top: 1px solid var(--border);
         }
 
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .hero {
-                padding: 6rem 0 4rem;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero h2 {
+            .hero .subtitle {
                 font-size: 1.25rem;
-            }
-
-            .section {
-                padding: 4rem 0;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .projects-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .nav-links a:not(.theme-toggle) {
+                display: none;
             }
 
             .experience-header {
                 flex-direction: column;
-                align-items: start;
             }
 
-            .contact-card {
-                padding: 3rem 2rem;
+            .date {
+                white-space: normal;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .nav-links {
-                display: none;
-            }
-
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero-buttons {
+            .cta-buttons {
                 flex-direction: column;
-            }
-
-            .btn-primary,
-            .btn-secondary {
                 width: 100%;
-                text-align: center;
             }
-        }
 
-        /* Smooth fade-in animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            .btn {
+                width: 100%;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="nav">
-        <div class="nav-content">
-            <div class="nav-logo">Jack Berberian</div>
-            <ul class="nav-links">
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Jack</div>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span id="themeIcon">☀️</span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <div class="hero-badge">IT Infrastructure & Cloud Engineer</div>
-                <h1>Building reliable infrastructure that actually works</h1>
-                <h2>Jack Berberian</h2>
-                <p>I help organizations maintain secure, scalable IT infrastructure. Recently wrapped up at RSM managing enterprise systems, cloud deployments, and keeping things running smoothly for clients who depend on it.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Get in touch</a>
-                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn-secondary">View LinkedIn</a>
-                </div>
+            <h1>Jack</h1>
+            <div class="subtitle">IT Infrastructure Engineer</div>
+            <p>I keep enterprise systems running and help companies scale their infrastructure without breaking things. Recently finished at RSM doing managed IT consulting for mid-market clients. Before that, I was at Vestmark keeping AWS infrastructure stable for a wealth management platform handling billions in assets.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get in touch</a>
+                <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section" id="experience">
+    <section id="experience">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Experience</div>
                 <h2 class="section-title">Where I've worked</h2>
-                <p class="section-description">Recent roles focused on enterprise IT infrastructure, managed services, and cloud operations.</p>
+                <p class="section-description">Recent roles in managed IT consulting and cloud infrastructure engineering.</p>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-card">
                 <div class="experience-header">
-                    <div class="experience-title">
-                        <h3>IT Consultant Intern</h3>
-                        <div class="experience-company">RSM US LLP</div>
+                    <div class="company-info">
+                        <div class="company-logo">R</div>
+                        <div>
+                            <h3>Managed Cloud and Infrastructure Consultant</h3>
+                            <div class="company-name">RSM US LLP</div>
+                        </div>
                     </div>
-                    <div class="experience-date">Jan 2025 - Dec 2025</div>
+                    <div class="date">June - December 2025</div>
                 </div>
-                <p class="experience-description">Managed IT Cloud & Infrastructure for enterprise clients, providing Tier 1 support and handling critical infrastructure maintenance. Worked directly with high-priority clients ensuring systems stayed operational and secure.</p>
-                <ul class="experience-list">
-                    <li>Maintained enterprise backup infrastructure using Veeam for high-priority client environments</li>
-                    <li>Managed AWS infrastructure including EC2 deployments, RDS database operations, and security configurations</li>
-                    <li>Executed database backup/restore procedures and disk space upgrades without downtime</li>
-                    <li>Implemented UAT testing procedures for production environment changes</li>
-                    <li>Resolved critical backup system issues affecting client data protection</li>
-                    <li>Configured IP allowlists and security policies for client deployments</li>
+                <p>Delivered managed IT services for middle-market clients in financial services and life sciences. Provided white-glove support to C-suite executives while handling day-to-day infrastructure operations.</p>
+                <ul>
+                    <li>Resolved 100+ ServiceNow tickets monthly while maintaining SLA compliance for Tier 1 operations</li>
+                    <li>Managed Microsoft 365, Azure AD, and Google Workspace environments for enterprise clients</li>
+                    <li>Deployed and configured Windows 10/11 endpoints using Intune MDM with policy enforcement</li>
+                    <li>Built PowerShell automation for calendar management and user provisioning tasks</li>
+                    <li>Provided direct technical support to CEOs, CFOs, and other executive stakeholders</li>
                 </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">AWS (EC2, RDS)</span>
-                    <span class="tech-tag">Veeam Backup</span>
-                    <span class="tech-tag">Windows Server</span>
-                    <span class="tech-tag">Linux</span>
-                    <span class="tech-tag">Enterprise Support</span>
+                <div class="tech-tags">
+                    <span class="tag">Microsoft 365</span>
+                    <span class="tag">Azure AD</span>
+                    <span class="tag">ServiceNow</span>
+                    <span class="tag">Intune MDM</span>
+                    <span class="tag">PowerShell</span>
+                    <span class="tag">Google Workspace</span>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <div class="company-logo">V</div>
+                        <div>
+                            <h3>Systems Engineer (Co-Op)</h3>
+                            <div class="company-name">Vestmark</div>
+                        </div>
+                    </div>
+                    <div class="date">January - December 2023</div>
+                </div>
+                <p>Supported AWS infrastructure for a wealth management platform serving billions in assets. Handled database operations, security policy changes, and system monitoring.</p>
+                <ul>
+                    <li>Managed AWS infrastructure including ECS containers, RDS databases, and S3 storage</li>
+                    <li>Performed SQL Server database administration with backup/restore and data integrity validation</li>
+                    <li>Implemented 50+ monthly security changes using infrastructure-as-code and Rundeck automation</li>
+                    <li>Investigated performance issues using Splunk log analysis and CloudWatch monitoring</li>
+                    <li>Upgraded Veeam Backup servers addressing CVE vulnerabilities across 50+ production systems</li>
+                    <li>Independently resolved critical after-hours outage by researching historical tickets and documentation</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tag">AWS (ECS, RDS, S3)</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">Veeam Backup</span>
+                    <span class="tag">Splunk</span>
+                    <span class="tag">CloudWatch</span>
+                    <span class="tag">Rundeck</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section" id="projects" style="background: var(--bg-secondary);">
+    <section id="projects" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Projects</div>
                 <h2 class="section-title">Things I've built</h2>
-                <p class="section-description">Personal projects and infrastructure work that solve real problems.</p>
+                <p class="section-description">Personal infrastructure projects that solve real problems.</p>
             </div>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-icon">🏠</div>
                     <h3>Multi-Floor Home Network</h3>
-                    <p>Designed and implemented a complete home network infrastructure using MoCA adapters, providing gigabit+ connectivity to every floor without running new ethernet.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">MoCA 2.5</span>
-                        <span class="tech-tag">Pi-hole</span>
-                        <span class="tech-tag">UniFi</span>
-                        <span class="tech-tag">HomeKit</span>
+                    <p>Built a complete home network using MoCA 2.5 adapters to deliver gigabit+ speeds to every floor without running ethernet. Includes Pi-hole for DNS filtering and UniFi WiFi.</p>
+                    <div class="tech-tags">
+                        <span class="tag">MoCA 2.5</span>
+                        <span class="tag">Pi-hole DNS</span>
+                        <span class="tag">UniFi</span>
+                        <span class="tag">HomeKit</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">☀️</div>
-                    <h3>Solar-Powered Computing Platform</h3>
-                    <p>Built an autonomous solar-powered Raspberry Pi system with 100W panels and deep cycle battery for remote computing and monitoring projects.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Solar Power</span>
-                        <span class="tech-tag">Raspberry Pi</span>
-                        <span class="tech-tag">Remote Management</span>
+                    <h3>Solar-Powered Pi</h3>
+                    <p>Designed an off-grid Raspberry Pi system with 100W solar panel and deep cycle battery for remote computing projects.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Solar Power</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Remote Management</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">🔒</div>
-                    <h3>Network Security Stack</h3>
-                    <p>Deployed Pi-hole for network-wide ad blocking and DNS management, integrated with HomeKit for smart home automation and monitoring.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">DNS/DHCP</span>
-                        <span class="tech-tag">Security</span>
-                        <span class="tech-tag">Automation</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">💾</div>
-                    <h3>Backup & Recovery System</h3>
-                    <p>Configured automated Backblaze B2 backups for critical data with versioning and encryption, ensuring data resilience and disaster recovery capability.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Backblaze</span>
-                        <span class="tech-tag">Automation</span>
-                        <span class="tech-tag">Encryption</span>
+                    <h3>Automated Backup System</h3>
+                    <p>Set up Backblaze B2 with automated backups, versioning, and encryption for critical data protection.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Backblaze</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Encryption</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section" id="skills">
+    <section id="skills">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Skills</div>
@@ -721,128 +643,127 @@
 
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>☁️ Cloud & Infrastructure</h3>
+                    <h3>Cloud & Infrastructure</h3>
                     <ul class="skill-list">
-                        <li>AWS (EC2, RDS, IAM, Security)</li>
-                        <li>Windows Server Administration</li>
-                        <li>Linux System Administration</li>
+                        <li>AWS (ECS, RDS, S3, CloudWatch, IAM)</li>
+                        <li>Azure Active Directory</li>
+                        <li>Microsoft 365 Administration</li>
+                        <li>VMware vSphere</li>
+                        <li>Windows Server 2016/2019/2022</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Endpoint & Identity Management</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Intune MDM</li>
+                        <li>Active Directory</li>
+                        <li>Device Deployment (Win 10/11)</li>
+                        <li>Group Policy Management</li>
+                        <li>User Access Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Service Management</h3>
+                    <ul class="skill-list">
+                        <li>ServiceNow ITSM</li>
+                        <li>Incident Management</li>
+                        <li>Change Management</li>
+                        <li>SLA Compliance</li>
+                        <li>ITIL Best Practices</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Database & Tools</h3>
+                    <ul class="skill-list">
+                        <li>SQL Server (SSMS, T-SQL)</li>
+                        <li>PowerShell Automation</li>
                         <li>Veeam Backup & Recovery</li>
-                        <li>VMware & Virtualization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🌐 Networking</h3>
-                    <ul class="skill-list">
-                        <li>Network Design & Architecture</li>
-                        <li>DNS & DHCP Management</li>
-                        <li>Network Security</li>
-                        <li>MoCA & Ethernet Infrastructure</li>
-                        <li>Pi-hole & DNS Filtering</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🔧 Tools & Technologies</h3>
-                    <ul class="skill-list">
-                        <li>Git & Version Control</li>
+                        <li>Splunk Log Analysis</li>
                         <li>Bash Scripting</li>
-                        <li>Database Management</li>
-                        <li>Backblaze Cloud Backup</li>
-                        <li>Remote Management Tools</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🎯 Other Skills</h3>
-                    <ul class="skill-list">
-                        <li>3D Modeling (Blender)</li>
-                        <li>3D Printing (Prusa Mini)</li>
-                        <li>Smart Home Integration</li>
-                        <li>Technical Documentation</li>
-                        <li>Energy Monitoring Systems</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Certifications -->
-            <div style="margin-top: 4rem;">
-                <div class="section-header">
-                    <div class="section-label">Certifications</div>
-                    <h2 class="section-title">Professional credentials</h2>
+            <div class="cert-grid">
+                <div class="cert-badge">
+                    <div class="cert-icon">S+</div>
+                    <div>
+                        <h4>CompTIA Security+</h4>
+                        <p>Valid through Nov 2028</p>
+                    </div>
                 </div>
-                <div class="cert-grid">
-                    <div class="cert-badge">
-                        <div class="cert-icon">✓</div>
-                        <div class="cert-info">
-                            <h4>CompTIA Security+</h4>
-                            <p>Security Operations</p>
-                        </div>
+                <div class="cert-badge">
+                    <div class="cert-icon">N+</div>
+                    <div>
+                        <h4>CompTIA Network+</h4>
+                        <p>Valid through Nov 2028</p>
                     </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon">✓</div>
-                        <div class="cert-info">
-                            <h4>CompTIA Network+</h4>
-                            <p>Network Infrastructure</p>
-                        </div>
-                    </div>
-                    <div class="cert-badge">
-                        <div class="cert-icon">✓</div>
-                        <div class="cert-info">
-                            <h4>CompTIA A+</h4>
-                            <p>Hardware & Support</p>
-                        </div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-icon">A+</div>
+                    <div>
+                        <h4>CompTIA A+</h4>
+                        <p>Valid through Nov 2028</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <div class="contact-card">
-                <h2>Let's work together</h2>
-                <p>I'm currently looking for full-time opportunities in IT infrastructure, cloud operations, or managed services. Based in Andover, MA.</p>
-                <div class="contact-links">
-                    <a href="mailto:various-58.trig@icloud.com" class="btn-primary">Send me an email</a>
-                </div>
-                <div class="contact-links">
-                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="https://github.com/jackfrosttt" target="_blank" class="social-link">GitHub</a>
+                <div class="section-label">Contact</div>
+                <h2 class="section-title">Let's work together</h2>
+                <p class="section-description">I'm looking for full-time roles in IT infrastructure, cloud operations, or managed services. Based in Andover, MA and open to hybrid/remote opportunities.</p>
+                <div class="social-links">
+                    <a href="mailto:various-58.trig@icloud.com" class="btn btn-primary">Email me</a>
+                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                    <a href="https://github.com/jackfrosttt" target="_blank" class="btn btn-secondary">GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Jack Berberian. Built with care in Andover, MA.</p>
+            <p>© 2026 Jack. Built in Andover, MA.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
         });
 
-        // Smooth scroll for navigation links
+        function updateIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
+        }
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
