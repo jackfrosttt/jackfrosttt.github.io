@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack - Infrastructure & Cloud Engineer</title>
+    <title>Jack Berberian - IT Infrastructure & Cloud Engineer</title>
+    <meta name="description" content="IT Infrastructure & Cloud Engineer specializing in managed services, cloud operations, and enterprise support. Based in Andover, MA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #64748b;
-            --accent: #3b82f6;
-            --background: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --success: #22c55e;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --accent: #8b5cf6;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
         }
 
         * {
@@ -23,180 +32,354 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background: var(--background);
-            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 8rem 0 6rem;
+            margin-top: 4rem;
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            pointer-events: none;
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 400;
             margin-bottom: 1.5rem;
-            font-weight: 500;
-            opacity: 0.9;
+            line-height: 1.6;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.8;
+            font-size: 1.125rem;
+            color: var(--text-tertiary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
-        /* Projects Section */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.875rem 1.75rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 0.875rem 1.75rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Section */
         .section {
-            padding: 5rem 2rem;
+            padding: 5rem 0;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+        .section-header {
+            max-width: 700px;
             margin-bottom: 4rem;
         }
 
-        .project-card {
-            background: var(--card);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
             color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
         }
 
-        .project-card p {
-            color: var(--text-light);
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Experience Cards */
+        .experience-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
             margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .project-card ul {
+        .experience-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            font-size: 1.125rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .experience-list {
             list-style: none;
             margin-bottom: 1.5rem;
         }
 
-        .project-card li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
+        .experience-list li {
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
             position: relative;
+            color: var(--text-secondary);
         }
 
-        .project-card li::before {
+        .experience-list li::before {
             content: "→";
             position: absolute;
             left: 0;
             color: var(--primary);
+            font-weight: 600;
         }
 
-        .tech-tags {
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
         }
 
         .tech-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
         }
 
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .skill-category {
-            background: var(--card);
+        .skill-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
-        .skill-category h3 {
-            color: var(--primary);
+        .skill-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-        }
-
-        /* Certifications */
-        .cert-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .cert-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            backdrop-filter: blur(10px);
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .cert-badge::before {
-            content: "✓";
-            color: var(--success);
         }
 
         .skill-list {
@@ -204,238 +387,465 @@
         }
 
         .skill-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--bg-tertiary);
         }
 
-        .skill-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-badge {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--success);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.125rem;
+        }
+
+        .cert-info p {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
         }
 
         /* Contact Section */
-        .contact {
-            background: white;
-            padding: 5rem 2rem;
-            text-align: center;
+        .contact-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 6rem 0;
         }
 
-        .contact-container {
+        .contact-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            box-shadow: var(--shadow-lg);
         }
 
-        .social-links {
+        .contact-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .social-link {
-            color: var(--text);
-            text-decoration: none;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--background);
         }
 
         .social-link:hover {
-            background: var(--primary);
-            color: white;
+            border-color: var(--primary);
+            color: var(--primary);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
-        .email-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9375rem;
+            border-top: 1px solid var(--border);
         }
 
-        .email-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
             .hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
 
             .section {
-                padding: 3rem 1rem;
+                padding: 4rem 0;
             }
 
-            .project-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 2rem;
             }
 
+            .projects-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .contact-card {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Smooth fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <header class="hero">
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-content">
+            <div class="nav-logo">Jack Berberian</div>
+            <ul class="nav-links">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h1>Jack</h1>
-            <h2>Infrastructure & Cloud Engineer</h2>
-            <p>Building scalable infrastructure solutions with expertise in networking, systems administration, and cloud operations</p>
-            <div class="cert-badges">
-                <span class="cert-badge">CompTIA Security+</span>
-                <span class="cert-badge">CompTIA Network+</span>
-                <span class="cert-badge">CompTIA A+</span>
+            <div class="hero-content fade-in">
+                <div class="hero-badge">IT Infrastructure & Cloud Engineer</div>
+                <h1>Building reliable infrastructure that actually works</h1>
+                <h2>Jack Berberian</h2>
+                <p>I help organizations maintain secure, scalable IT infrastructure. Recently wrapped up at RSM managing enterprise systems, cloud deployments, and keeping things running smoothly for clients who depend on it.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Get in touch</a>
+                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn-secondary">View LinkedIn</a>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section class="section">
+    <!-- Experience Section -->
+    <section class="section" id="experience">
         <div class="container">
-            <h2 class="section-title">Technical Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Enterprise Backup Infrastructure</h3>
-                    <p>Managed critical backup infrastructure for high-priority client environments</p>
-                    <ul>
-                        <li>Upgraded Veeam agents on production servers</li>
-                        <li>Implemented UAT testing procedures</li>
-                        <li>Resolved critical backup system issues</li>
-                        <li>Maintained high-priority client systems</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Veeam</span>
-                        <span class="tech-tag">Enterprise</span>
-                        <span class="tech-tag">Backup</span>
-                    </div>
-                </div>
+            <div class="section-header">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Where I've worked</h2>
+                <p class="section-description">Recent roles focused on enterprise IT infrastructure, managed services, and cloud operations.</p>
+            </div>
 
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>IT Consultant Intern</h3>
+                        <div class="experience-company">RSM US LLP</div>
+                    </div>
+                    <div class="experience-date">Jan 2025 - Dec 2025</div>
+                </div>
+                <p class="experience-description">Managed IT Cloud & Infrastructure for enterprise clients, providing Tier 1 support and handling critical infrastructure maintenance. Worked directly with high-priority clients ensuring systems stayed operational and secure.</p>
+                <ul class="experience-list">
+                    <li>Maintained enterprise backup infrastructure using Veeam for high-priority client environments</li>
+                    <li>Managed AWS infrastructure including EC2 deployments, RDS database operations, and security configurations</li>
+                    <li>Executed database backup/restore procedures and disk space upgrades without downtime</li>
+                    <li>Implemented UAT testing procedures for production environment changes</li>
+                    <li>Resolved critical backup system issues affecting client data protection</li>
+                    <li>Configured IP allowlists and security policies for client deployments</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">AWS (EC2, RDS)</span>
+                    <span class="tech-tag">Veeam Backup</span>
+                    <span class="tech-tag">Windows Server</span>
+                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">Enterprise Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Projects</div>
+                <h2 class="section-title">Things I've built</h2>
+                <p class="section-description">Personal projects and infrastructure work that solve real problems.</p>
+            </div>
+
+            <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Advanced Home Infrastructure</h3>
-                    <p>Comprehensive home network with multi-floor coverage and smart home integration</p>
-                    <ul>
-                        <li>Mixed 1G/2.5G MoCA adapter deployment</li>
-                        <li>Built-in WiFi on every floor</li>
-                        <li>Pi-hole DNS & DHCP server</li>
-                        <li>Backblaze backup solution</li>
-                        <li>HomeKit smart home integration</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">MoCA</span>
-                        <span class="tech-tag">Networking</span>
+                    <div class="project-icon">🏠</div>
+                    <h3>Multi-Floor Home Network</h3>
+                    <p>Designed and implemented a complete home network infrastructure using MoCA adapters, providing gigabit+ connectivity to every floor without running new ethernet.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">MoCA 2.5</span>
                         <span class="tech-tag">Pi-hole</span>
+                        <span class="tech-tag">UniFi</span>
                         <span class="tech-tag">HomeKit</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Solar-Powered IoT Platform</h3>
-                    <p>Autonomous solar-powered computing platform with remote management</p>
-                    <ul>
-                        <li>100W Solar panel setup</li>
-                        <li>12V 70Ah deep cycle marine battery</li>
-                        <li>Raspberry Pi 4B integration</li>
-                        <li>Remote management capability</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Solar</span>
+                    <div class="project-icon">☀️</div>
+                    <h3>Solar-Powered Computing Platform</h3>
+                    <p>Built an autonomous solar-powered Raspberry Pi system with 100W panels and deep cycle battery for remote computing and monitoring projects.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Solar Power</span>
                         <span class="tech-tag">Raspberry Pi</span>
-                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Remote Management</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>AWS Infrastructure Management</h3>
-                    <p>Cloud infrastructure maintenance and operations</p>
-                    <ul>
-                        <li>Griffin deployment management</li>
-                        <li>IP allowlist configurations</li>
-                        <li>Database backup and restores</li>
-                        <li>EC2 disk space upgrades</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">EC2</span>
-                        <span class="tech-tag">RDS</span>
+                    <div class="project-icon">🔒</div>
+                    <h3>Network Security Stack</h3>
+                    <p>Deployed Pi-hole for network-wide ad blocking and DNS management, integrated with HomeKit for smart home automation and monitoring.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">DNS/DHCP</span>
+                        <span class="tech-tag">Security</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">💾</div>
+                    <h3>Backup & Recovery System</h3>
+                    <p>Configured automated Backblaze B2 backups for critical data with versioning and encryption, ensuring data resilience and disaster recovery capability.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Backblaze</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Encryption</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: white;">
+    <!-- Skills Section -->
+    <section class="section" id="skills">
         <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2 class="section-title">Technical expertise</h2>
+            </div>
+
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Infrastructure</h3>
+                <div class="skill-card">
+                    <h3>☁️ Cloud & Infrastructure</h3>
                     <ul class="skill-list">
-                        <li>AWS Services</li>
+                        <li>AWS (EC2, RDS, IAM, Security)</li>
+                        <li>Windows Server Administration</li>
+                        <li>Linux System Administration</li>
                         <li>Veeam Backup & Recovery</li>
-                        <li>Linux Systems</li>
-                        <li>Windows Server</li>
-                        <li>Backblaze</li>
+                        <li>VMware & Virtualization</li>
                     </ul>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Networking</h3>
+                <div class="skill-card">
+                    <h3>🌐 Networking</h3>
                     <ul class="skill-list">
-                        <li>MoCA Network Design</li>
-                        <li>Pi-hole DNS & DHCP</li>
+                        <li>Network Design & Architecture</li>
+                        <li>DNS & DHCP Management</li>
                         <li>Network Security</li>
-                        <li>Multi-Floor WiFi</li>
+                        <li>MoCA & Ethernet Infrastructure</li>
+                        <li>Pi-hole & DNS Filtering</li>
                     </ul>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Additional Skills</h3>
+                <div class="skill-card">
+                    <h3>🔧 Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git & Version Control</li>
+                        <li>Bash Scripting</li>
+                        <li>Database Management</li>
+                        <li>Backblaze Cloud Backup</li>
+                        <li>Remote Management Tools</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🎯 Other Skills</h3>
                     <ul class="skill-list">
                         <li>3D Modeling (Blender)</li>
                         <li>3D Printing (Prusa Mini)</li>
                         <li>Smart Home Integration</li>
-                        <li>Energy Monitoring</li>
+                        <li>Technical Documentation</li>
+                        <li>Energy Monitoring Systems</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div style="margin-top: 4rem;">
+                <div class="section-header">
+                    <div class="section-label">Certifications</div>
+                    <h2 class="section-title">Professional credentials</h2>
+                </div>
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <div class="cert-icon">✓</div>
+                        <div class="cert-info">
+                            <h4>CompTIA Security+</h4>
+                            <p>Security Operations</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">✓</div>
+                        <div class="cert-info">
+                            <h4>CompTIA Network+</h4>
+                            <p>Network Infrastructure</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">✓</div>
+                        <div class="cert-info">
+                            <h4>CompTIA A+</h4>
+                            <p>Hardware & Support</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Connect</h2>
-            <div class="social-links">
-                <a href="https://github.com/jackfrosttt" target="_blank" class="social-link">
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/jackberberian" target="_blank" class="social-link">
-                    LinkedIn
-                </a>
-            </div>
-            <div class="contact-info">
-                <a href="mailto:various-58.trig@icloud.com" class="email-button">
-                    Get in Touch
-                </a>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <h2>Let's work together</h2>
+                <p>I'm currently looking for full-time opportunities in IT infrastructure, cloud operations, or managed services. Based in Andover, MA.</p>
+                <div class="contact-links">
+                    <a href="mailto:various-58.trig@icloud.com" class="btn-primary">Send me an email</a>
+                </div>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/jackfrosttt" target="_blank" class="social-link">GitHub</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jack Berberian. Built with care in Andover, MA.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
